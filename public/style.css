@@ -1,14 +1,226 @@
+/* navbar styling */
+body {
+    background-color: antiquewhite;
+}
+
+
+a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+li a {
+    font-size:1.4vw;
+    text-decoration: none;
+    color: green;
+}
+
+
+#topNavBar {
+    margin-top: 10px;
+}
+
+#mobile-nav{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    display: none;
+}
+
+#livechat {
+    display: none;
+}
+
+.chat-title, .chat-list {
+    color: black;
+}
+
+.chat-sidebar {
+    position: fixed;
+    right: 0;
+    background-color: #59d4ae;
+    height: 100%;
+    border-radius: 15px;
+    width: 40%;
+    color: black;
+}
+
+.mobilelanding{
+    display: none;
+}
+
+#welcome-name {
+    font-size: 10em;
+    color: white;
+    font-weight: 500;
+    text-shadow: 2px 10px 80px grey;
+    line-height: 4rem;
+    transform: translateX(-18%);
+}
+
+#quote {
+    font-size: 1.6em;
+    color: white;
+    position: absolute;
+    transform: translateY(50vh);
+    margin: 0 5vw;
+/*    width: 30vw;*/
+}
+
+.open-listing {
+    border: 1px solid #FF9300;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+
+
+@media all and (max-width: 650px) {
+    #topheading {
+        padding-bottom: 30px;
+    }
+    #extendcolor {
+        padding-bottom: 100vh;
+    }
+    .mobilelanding{
+        display: block;
+        margin: auto;
+        height: 200px;
+        width: 200px;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+        background: cadetblue;
+        padding: 10px;
+        border-radius: 50%;
+    }
+    .textcenter {
+        text-align: center;
+    }
+    .login-box {
+        width: 90vw;
+        font-size: 2vw;
+    }
+    #welcome-name {
+        transform: translateX(-12.5vw);
+    }
+    #welcome-portfolio {
+        width: 85vw;
+        float: none;
+        font-size: 5.8vw;
+        transform: translateX(18vw);
+    }
+    #quote {
+        font-size: 1.2em;
+        width: 90vw;
+        margin: 0;
+        transform: translate(-20vw, 60vh);
+    }
+    #mobile-nav{
+        display: flex;
+        min-height: 30px;
+        padding-left: 0px;
+    }
+    #topNavBar {
+        display: none;
+    }
+    #livechat {
+        display: block;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        z-index: 10;
+    }
+    .chat-sidebar{
+        width: 100%;
+        position: absolute;
+        bottom: 30px;
+        display: none;
+    }
+    .chat-input {
+        position: absolute !important;
+        display: flex;
+    }
+    .chat-input .form-control{
+        width: 70vw;
+    }
+    .chat-button{
+        margin-top: 0 !important;
+    }
+
+    .chat-sidebar.showNavStatus{
+        display: block;
+        height: 80%;
+    }
+
+    .open-listing {
+        border: 0;
+        transform: translateX(4vw);
+    }
+    #whiteback {
+        background: rgba(255,255,255,.7);
+        padding: 4px 20vw 4px 5px;
+        border-radius: 7px;
+    }
+    #bidform {
+        display: flex;
+    }
+    #auction-items {
+        background: deepskyblue;
+        border-radius: 10px;
+        margin-top: 14px;
+    }
+    #startauction {
+        background: deepskyblue;
+        margin-top: 22vh;
+        padding: 8px;
+        border-radius: 10px;
+        margin-bottom: 30vh;
+    }
+    .tabback {
+        color: white;
+        background: rgba(255,20,255,.25); 
+        padding: 8px 20vw 8px 10px;
+        border-radius: 7px;
+    }
+
+
+}
+
+.mobileA {
+        background-color: #59d4ae;
+    }
+
+ul li img {
+    display: inline-block;
+}
+
+.bidworld-logo {
+    display: inline-block;
+    font-size: 3em;
+}
+
+ul .navbar-nav {
+    list-style-type: none;
+}
+
+ul .navbar-nav li {
+    margin-left: 20px;
+}
+
+
+/* main styling*/
+
+#open-listings {
+    width: 90%;
+}
+
 h1, h2 {
     color: #E85509;
 }
 .login-input {
     margin-bottom: 5px;
 }
-.open-listing {
-    border: 1px solid #FF9300;
-    padding: 10px;
-    margin-bottom: 5px;
-}
+
 .closed-listing {
     background-color: #efefef;
     padding: 10px;
@@ -17,25 +229,19 @@ h1, h2 {
 .listing-img {
     width: 300px;
 }
-.chat-title {
-    color: white;
-}
+
 .chat-message {
-    color: white; 
+    color: black; 
 }
-.chat-sidebar {
-    position: fixed;
-    right: 0;
-    background-color: #FF9300;
-    height: 100%;
-}
+
 .chat-input {
     position: fixed;
     bottom: 30px;
     width: 30%;
+    display: flex;
 }
-.chat-button {
-    margin-top: 10px;
+.chat-input.chat-button{
+    margin-top: 0px !important;
 }
 .chat-list {
     padding-left: 0;
@@ -45,9 +251,7 @@ h1, h2 {
 }
 
 @media (max-width: 1000px) {
-    .chat-sidebar {
-        display: none;
-    }
+
 }
 
 @media (min-width: 768px) {
@@ -87,14 +291,7 @@ section div .heading{
     transform: translateX(25%);
 }
 
-#welcome-name {
-    font-size: 10em;
-    color: white;
-    font-weight: 500;
-    text-shadow: 2px 10px 80px grey;
-    line-height: 4rem;
-    transform: translateX(-18%);
-}
+
 
 
 #welcome-portfolio {
@@ -104,14 +301,7 @@ section div .heading{
     margin-top:  .5em;
 }
 
-#quote {
-    font-size: 1.6em;
-    color: white;
-    position: absolute;
-    transform: translateY(50vh);
-    margin: 0 5vw;
-/*    width: 30vw;*/
-}
+
 
 div h2 {
     color: black;
@@ -227,5 +417,28 @@ div h2 {
 
 /* end of welcome page styling*/
 
+/* media query*/
 
+@media (max-width: 400px) {
+    div h2 {
+        font-size: 7vw;
+    }
+
+    .welcome-heading {
+        transform: none;
+        top: 50px;
+    }
+
+    #welcome-name {
+        font-size: 18vw;
+    }
+
+    #welcome-name {
+        font-size: 18vw;
+    }
+
+    #welcome-portfolio {
+        font-size: 6.5vw;
+    }
+}
 

@@ -1,13 +1,14 @@
-h2(ng-show="openAuctionsExist()") Open auctions
-            
+h2.tabback(ng-show="openAuctionsExist()") Open auctions
+
+h2.tabback(ng-hide="openAuctionsExist()") No current auctions
 div#open-listings
-  div.open-listing.row(ng-repeat="listing in state.auction | filter:openListingsFilter")
+  div.open-listing.row#auction-items(ng-repeat="listing in state.auction | filter:openListingsFilter")
     div.col-sm-8
-      h3 {{listing.name}}
+      h3#whiteback {{listing.name}}
       img(src="{{listing.imageUrl}}").listing-img
       p Seller: <strong>{{listing.submitter.username}}</strong>
       p Time remaining: {{listing.timeRemaining | timeRemainingFilter}}
-      form(ng-submit="submitBid(listing)").form-inline
+      form#bidform(ng-submit="submitBid(listing)").form-inline
         input(placeholder="price", ng-model="listing.mybid").form-control
         input(type="submit", value="Bid!").btn.btn-warning
     div.col-sm-4

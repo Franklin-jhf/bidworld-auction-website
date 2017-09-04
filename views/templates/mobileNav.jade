@@ -1,0 +1,9 @@
+ul.navbar.navbar-default.navbar-fixed-bottom#mobile-nav
+  li(role='presentation' ng-class='{mobileA: showCurrent}')
+    span.glyphicon.glyphicon-th-list.btn-lg(ng-click="changeActiveTab('showCurrent')")
+  li(role='presentation')
+    span.glyphicon.glyphicon-plus.btn-lg(ng-click="changeActiveTab('showNew')" ng-class='{mobileA: showNew}')
+  li(role='presentation')
+    span.glyphicon.glyphicon-hourglass.btn-lg(ng-click="changeActiveTab('showClosed')" ng-class='{mobileA: showClosed}')
+  li(role='presentation')
+    span.glyphicon.glyphicon-log-out.btn-lg(onClick='window.location.reload()')

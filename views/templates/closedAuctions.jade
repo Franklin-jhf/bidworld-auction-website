@@ -1,5 +1,6 @@
-h2(ng-show="closedAuctionsExist()") Closed auctions
-            
+h2.tabback(ng-show="closedAuctionsExist()") Closed auctions
+
+h2(ng-hide="closedAuctionsExist()") No current closed auctions           
 div#closed-listings
   div.closed-listing.row(ng-repeat="listing in state.auction | filter:closedListingsFilter")
     div.col-sm-8

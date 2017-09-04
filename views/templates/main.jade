@@ -1,15 +1,34 @@
-div.container
+div.container#topheading(ng-controller="biddingController")
     //- p The state is.. {{state}}
-    
+    span.glyphicon.glyphicon-comment.btn-lg#livechat(ng-click="showChat()")
+
+    ul.nav.nav-tabs.nav-justified#topNavBar
+      li
+        img(src='https://www.shareicon.net/download/2015/09/22/105481_hammer_512x512.png' height='100' width='100')
+        p.bidworld-logo BidWorld
+      li(role='presentation' ng-class='{active: showCurrent}')
+        a(ng-click="changeActiveTab('showCurrent')") Current Auctions
+      li(role='presentation' ng-class='{active: showNew}')
+        a(ng-click="changeActiveTab('showNew')") Add an Auction
+      li(role='presentation' ng-class='{active: showClosed}')
+        a(ng-click="changeActiveTab('showClosed')") Closed Auctions
+      li(role='presentation')
+        a(onClick='window.location.reload()') Log Out
+    mobile-nav 
     div.row
-        div.col-md-8(ng-controller="biddingController")
+        div(ng-hide='landing')
+          img.mobilelanding(src='https://www.shareicon.net/download/2015/09/22/105481_hammer_512x512.png' height='100' width='100')
+          h2.textcenter Welcome!
+          h3.textcenter#extendcolor Here at BidWorld, you can buy anything your heart desires. As long as it's up for auction!
+
+        div.col-md-8
           div
-            new-auction
-            live-auctions
-            closed-auctions
+            new-auction(ng-show="showNew")
+            live-auctions(ng-show="showCurrent")
+            closed-auctions(ng-show="showClosed")
                   
         // Chat Sidebar
-        div.col-md-4.chat-sidebar(ng-controller="chatController")
+        div.col-md-4.chat-sidebar(ng-controller="chatController" ng-class='{showNavStatus: showNavStatus}')
             h2.chat-title Live Chat
             
             ul.chat-list
@@ -20,4 +39,4 @@ div.container
 
             form.chat-input(ng-submit="addMessage()")
               input.form-control(ng-model="newMessage")
-              input.btn.btn-primary.chat-button(type="submit" value="Add Message")
+              input.btn.btn-primary.chat-button(type="submit" ng-value="msgButton")

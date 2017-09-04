@@ -72,6 +72,8 @@ biddingApp.controller('mainController', function($scope, stateFactory, $location
 biddingApp.controller('chatController', function($scope, stateFactory) {
     $scope.state = stateFactory;
 
+    $scope.msgButton = '>';
+
     $scope.addMessage = function() {
         // emit message with text data
         socket.emit('message', {text: $scope.newMessage} );
@@ -91,6 +93,31 @@ biddingApp.controller('chatController', function($scope, stateFactory) {
 
 biddingApp.controller('biddingController', function($scope, stateFactory) {
   console.log('Bidding!');
+
+  $scope.changeActiveTab = function(tab) {
+    $scope.showNew = false;
+    $scope.showCurrent = false;
+    $scope.showClosed = false;
+    $scope.landing = true;
+
+    if (tab === 'showNew') {
+      $scope.showNew = true;
+    }
+    if (tab === 'showCurrent') {
+      $scope.showCurrent = true;
+    }
+    if (tab === 'showClosed') {
+      $scope.showClosed = true;
+    }
+  }
+
+  $scope.showChat = function() {
+    console.log('showcatwasclicked');
+    $scope.showNavStatus = !$scope.showNavStatus;
+  }
+
+
+
 
   socket.on('create-listing', function(auctionItem) {
     console.log(auctionItem);
@@ -201,6 +228,15 @@ biddingApp.directive('closedAuctions', function () {
   return {
     restrict: 'EA',
     templateUrl: '/templates/closedAuctions'
+    // link: function (scope, iElement, iAttrs) {
+      
+    // }
+  };
+})
+biddingApp.directive('mobileNav', function () {
+  return {
+    restrict: 'EA',
+    templateUrl: '/templates/mobileNav'
     // link: function (scope, iElement, iAttrs) {
       
     // }
