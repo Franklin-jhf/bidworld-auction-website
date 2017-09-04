@@ -1,0 +1,16 @@
+h2(ng-show="openAuctionsExist()") Open auctions
+            
+div#open-listings
+  div.open-listing.row(ng-repeat="listing in state.auction | filter:openListingsFilter")
+    div.col-sm-8
+      h3 {{listing.name}}
+      img(src="{{listing.imageUrl}}").listing-img
+      p Seller: <strong>{{listing.submitter.username}}</strong>
+      p Time remaining: {{listing.timeRemaining | timeRemainingFilter}}
+      form(ng-submit="submitBid(listing)").form-inline
+        input(placeholder="price", ng-model="listing.mybid").form-control
+        input(type="submit", value="Bid!").btn.btn-warning
+    div.col-sm-4
+      h3(ng-show="listing.bids[0]") Bids
+      div
+        div(ng-repeat="bid in listing.bids") {{bid.price | currency}} - <strong>{{bid.user.username}}</strong>

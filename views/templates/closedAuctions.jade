@@ -1,0 +1,15 @@
+h2(ng-show="closedAuctionsExist()") Closed auctions
+            
+div#closed-listings
+  div.closed-listing.row(ng-repeat="listing in state.auction | filter:closedListingsFilter")
+    div.col-sm-8
+      h3 {{listing.name}}
+      img(ng-src="{{listing.imageUrl}}").listing-img
+      p Seller: <strong>{{listing.submitter.username}}</strong>
+      p(ng-show="listing.bids[0]") Sold to <strong>{{listing.bids[0].user.username}}</strong> for <strong>{{listing.bids[0].price | currency}}</strong>!
+      p(ng-show="!listing.bids[0]") This item received no bids!
+    div.col-sm-4
+      h3(ng-show="listing.bids[0]") Bids
+      div
+        div(ng-repeat="bid in listing.bids") {{bid.price | currency}} - <strong>{{bid.user.username}}</strong>
+                  

@@ -1,0 +1,231 @@
+h1, h2 {
+    color: #E85509;
+}
+.login-input {
+    margin-bottom: 5px;
+}
+.open-listing {
+    border: 1px solid #FF9300;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+.closed-listing {
+    background-color: #efefef;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+.listing-img {
+    width: 300px;
+}
+.chat-title {
+    color: white;
+}
+.chat-message {
+    color: white; 
+}
+.chat-sidebar {
+    position: fixed;
+    right: 0;
+    background-color: #FF9300;
+    height: 100%;
+}
+.chat-input {
+    position: fixed;
+    bottom: 30px;
+    width: 30%;
+}
+.chat-button {
+    margin-top: 10px;
+}
+.chat-list {
+    padding-left: 0;
+}
+.chat-message {
+    list-style: none;
+}
+
+@media (max-width: 1000px) {
+    .chat-sidebar {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .col-sm-offset-4 {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/*welcome page styling*/
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  outline: none;
+}
+
+.welcome-heading {
+    transform: translateY(-27vh);
+    position: absolute;
+    text-align: center;
+    display: inline-block;
+    width: 50vw;
+}
+
+section div .heading{
+    color: white;
+    text-shadow: 2px 2px 8px grey;
+    font-size: 80px;
+    transform: translateX(25%);
+}
+
+#welcome-name {
+    font-size: 10em;
+    color: white;
+    font-weight: 500;
+    text-shadow: 2px 10px 80px grey;
+    line-height: 4rem;
+    transform: translateX(-18%);
+}
+
+
+#welcome-portfolio {
+    font-size: 2.2em;
+    color: white;
+    float: right;
+    margin-top:  .5em;
+}
+
+#quote {
+    font-size: 1.6em;
+    color: white;
+    position: absolute;
+    transform: translateY(50vh);
+    margin: 0 5vw;
+/*    width: 30vw;*/
+}
+
+div h2 {
+    color: black;
+    padding-left: 20px;
+    margin: 0px;
+    margin-top: 8px;
+    font-size: 2.5vw;
+}
+
+.welcome {
+  position            : relative;
+  display             : flex;
+  align-items         : center;
+  justify-content     : center;
+  width               : 100%;
+  height              : 100vh;
+  font-family         : 'Source Sans Pro', sans-serif;
+  font-size           : 12px;
+  font-smooth         : auto;
+  font-weight         : 300;
+  line-height         : 1.5;
+  color               : #444;
+  background-image    : url("https://static.pexels.com/photos/176851/pexels-photo-176851.jpeg");
+  background-position : center center;
+  background-size     : cover;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 250px;
+}
+#world {
+  position: relative;
+  display: block;
+  width: 150px;
+  height: 150px;
+  background-color: #217dbb;
+  background-image: url("https://t4.ftcdn.net/jpg/00/08/47/31/240_F_8473147_ijawnZyiWZyc8FmBPN5GizR7H3WiWEQ4.jpg");
+  background-position: 0 0;
+  background-repeat: repeat-x;
+  background-size: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+  transform: rotate(15deg);
+  animation: spin 5s linear infinite;
+  z-index: 10;
+  transition: all 1.0s ease-in-out;
+}
+
+#earth {
+  width: 150px;
+  height: 150px;
+  background: url(https://t4.ftcdn.net/jpg/00/08/47/31/240_F_8473147_ijawnZyiWZyc8FmBPN5GizR7H3WiWEQ4.jpg);
+  border-radius: 50%;
+  background-size: 210px;
+  box-shadow: inset 16px 0 40px 6px rgb(0, 0, 0),
+    inset -3px 0 6px 2px rgba(255, 255, 255, 0.2);
+  animation-name: rotate;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transition: all 1.0s ease-in-out;
+  transform: rotate(15deg);
+}
+
+@keyframes rotate {
+  from { background-position-x: 0px; }
+  to { background-position-x: 210px; }
+}
+
+#earth:hover {
+  transform: scale(2.5);
+  cursor: pointer;
+}
+
+.wrapper div:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: -webkit-radial-gradient(center, circle cover, transparent 0%, rgba(0, 0, 0, 0.87) 100%);
+  border-radius: 50%;
+  opacity: 0.95;
+  z-index: 1;
+}
+.wrapper span {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 250px;
+  transform: rotate(15deg) !important;
+  z-index: 0;
+}
+
+@keyframes spin {
+  to {
+    background-position: 185% 0;
+  }
+}
+
+.login-box {
+    background-color: rgba(255,255,255, .2);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+
+/* end of welcome page styling*/
+
+
+

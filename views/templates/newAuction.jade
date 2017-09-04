@@ -1,0 +1,15 @@
+h2 Start a new auction!
+div.row
+  div.col-sm-8
+    form(ng-submit="startAuction()")
+      div.form-group
+        label.control-label Item to Auction
+        input.form-control(placeholder="Item Name" ng-model="startAuctionForm.name")
+      div.form-group
+        label.control-label Image URL
+        input.form-control(placeholder="Image (URL)" ng-model="startAuctionForm.imageUrl")
+      div.form-group
+        label.control-label Auction Duration (Minutes)
+        input.form-control(placeholder="Duration of auction (minutes)" ng-model="startAuctionForm.auctionDurationMins")
+      div.form-group
+        input.btn.btn-warning(type="submit")

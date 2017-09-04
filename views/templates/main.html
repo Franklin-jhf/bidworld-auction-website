@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8" ng-controller="biddingController">
+      <div>
+        <h2>Start a new auction!</h2>
+        <div class="row">
+          <div class="col-sm-8">
+            <form ng-submit="startAuction()">
+              <div class="form-group">
+                <label class="control-label">Item to Auction</label>
+                <input class="form-control" placeholder="Item Name" ng-model="startAuctionForm.name"/>
+              </div>
+              <div class="form-group">
+                <label class="control-label">Image URL</label>
+                <input class="form-control" placeholder="Image (URL)" ng-model="startAuctionForm.imageUrl"/>
+              </div>
+              <div class="form-group">
+                <label class="control-label">Auction Duration (Minutes)</label>
+                <input class="form-control" placeholder="Duration of auction (minutes)" ng-model="startAuctionForm.auctionDurationMins"/>
+              </div>
+              <div class="form-group">
+                <input class="btn btn-warning" type="submit"/>
+              </div>
+            </form>
+          </div>
+        </div>
+        <h2 ng-show="openAuctionsExist()">Open auctions</h2>
+        <div id="open-listings">
+          <div class="open-listing row" ng-repeat="listing in state.auction | filter:openListingsFilter">
+            <div class="col-sm-8">
+              <h3>{{listing.name}}</h3><img class="listing-img" src="{{listing.imageUrl}}"/>
+              <p>Seller: <strong>{{listing.submitter.username}}</strong></p>
+              <p>Time remaining: {{listing.timeRemaining | timeRemainingFilter}}</p>
+              <form class="form-inline" ng-submit="submitBid(listing)">
+                <input class="form-control" placeholder="price" ng-model="listing.mybid"/>
+                <input class="btn btn-warning" type="submit" value="Bid!"/>
+              </form>
+            </div>
+            <div class="col-sm-4">
+              <h3 ng-show="listing.bids[0]">Bids</h3>
+              <div>
+                <div ng-repeat="bid in listing.bids">{{bid.price | currency}} - <strong>{{bid.user.username}}</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2 ng-show="closedAuctionsExist()">Closed auctions</h2>
+        <div id="closed-listings">
+          <div class="closed-listing row" ng-repeat="listing in state.auction | filter:closedListingsFilter">
+            <div class="col-sm-8">
+              <h3>{{listing.name}}</h3><img class="listing-img" ng-src="{{listing.imageUrl}}"/>
+              <p>Seller: <strong>{{listing.submitter.username}}</strong></p>
+              <p ng-show="listing.bids[0]">Sold to <strong>{{listing.bids[0].user.username}}</strong> for <strong>{{listing.bids[0].price | currency}}</strong>!</p>
+              <p ng-show="!listing.bids[0]">This item received no bids!</p>
+            </div>
+            <div class="col-sm-4">
+              <h3 ng-show="listing.bids[0]">Bids</h3>
+              <div>
+                <div ng-repeat="bid in listing.bids">{{bid.price | currency}} - <strong>{{bid.user.username}}</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Chat Sidebar-->
+    <div class="col-md-4 chat-sidebar" ng-controller="chatController">
+      <h2 class="chat-title">Live Chat</h2>
+      <ul class="chat-list">
+        <li class="chat-message" ng-repeat="msg in state.messages"><span><strong>{{msg.user.username}}</strong></span>&nbsp; {{msg.text}}</li>
+      </ul>
+      <form class="chat-input" ng-submit="addMessage()">
+        <input class="form-control" ng-model="newMessage"/>
+        <input class="btn btn-primary chat-button" type="submit" value="Add Message"/>
+      </form>
+    </div>
+  </div>
+</div>

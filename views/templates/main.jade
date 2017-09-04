@@ -1,0 +1,23 @@
+div.container
+    //- p The state is.. {{state}}
+    
+    div.row
+        div.col-md-8(ng-controller="biddingController")
+          div
+            new-auction
+            live-auctions
+            closed-auctions
+                  
+        // Chat Sidebar
+        div.col-md-4.chat-sidebar(ng-controller="chatController")
+            h2.chat-title Live Chat
+            
+            ul.chat-list
+                li.chat-message(ng-repeat="msg in state.messages")
+                    span
+                        strong {{msg.user.username}}
+                    | &nbsp; {{msg.text}}
+
+            form.chat-input(ng-submit="addMessage()")
+              input.form-control(ng-model="newMessage")
+              input.btn.btn-primary.chat-button(type="submit" value="Add Message")

@@ -1,0 +1,25 @@
+doctype html
+html(lang='en', ng-app="biddingApp")
+    head
+        meta(charset="utf-8")
+        title Bidding App!
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+        link(rel="stylesheet" href="/style.css")
+        
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-route.js")
+        
+        // Load the models so we can access in Angular script
+        script(src="/models.js")
+        
+        // Socket.io generates this file on the client for you
+        // Then we initialize the socket
+        script(src="/socket.io/socket.io.js")
+        script(src="/socket-events.js")
+        
+        // Load our Angular script
+        script(src="/index.js")
+
+    body
+        div(ng-view)

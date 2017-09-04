@@ -1,0 +1,24 @@
+div.container.welcome
+  .welcome-heading
+    p#welcome-name BidWorld    
+    p#welcome-portfolio 
+      em &quot;Small prices in a bid world&quot; 
+    p#quote
+        em
+          | &quot;The world only exists in your eyes. You can make it as big or as small as you want.&quot;
+        br
+        |  ~ F. Scott Fitzgerald 
+  div.row
+    div.col-sm-offset-4.col-sm-4
+        div.login-box(ng-show="showLogin")
+          h1 Login to Bid!
+          form(ng-submit="loginHandler()")
+            input(placeholder="Username" ng-model="username").form-control.login-input
+            input(type="submit" value="Login").btn.btn-warning
+        #earth(ng-click="showLogin=!showLogin" ng-hide="showLogin")
+
+
+
+
+
+      
